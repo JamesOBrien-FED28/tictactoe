@@ -2,23 +2,14 @@
 
 const name1 = document.getElementById("p1Name");
 const name2 = document.getElementById("p2Name");
-
-let playerOne = window.prompt('Player One Name:');
-//console.log(playerOne);
-let playerTwo = window.prompt('Player Two Name:');
-//console.log(playerTwo);
-
-//Temporary hardcoded names
-//const playerOne = 'James';
-//const playerTwo = 'Jeff'
-
+let playerOne = window.prompt('Player One Name:', "Player One");
+let playerTwo = window.prompt('Player Two Name:', "Player Two");
 const player1Symbol = 'X';
 const player2Symbol = 'O';
-
 name1.textContent = playerOne;
 name2.textContent = playerTwo;
-// Grid array
 
+// Grid array
 const box1 = document.getElementById("square1");
 const box2 = document.getElementById("square2");
 const box3 = document.getElementById("square3");
@@ -28,22 +19,19 @@ const box6 = document.getElementById("square6");
 const box7 = document.getElementById("square7");
 const box8 = document.getElementById("square8");
 const box9 = document.getElementById("square9");
-
 const grid = [
     box1, box2, box3, box4, box5, box6, box7, box8, box9
 ]
 
 // Turn indicator
-
-
 let currentSymbol;
 let turn;
 let random = Math.round(Math.random());
 
-
 if (random === 0) { turn = true }
 else { turn = false };
 
+// Switch player after turn
 function turnSwitcher() {
 
     if (!turn) {
@@ -87,8 +75,8 @@ function buttonGenerator() {
 }
 
 buttonGenerator();
-//console.log(turn);
 
+// Check for 3-in-a-row
 function winChecker() {
     for (let i = 0; i < winner.length; i++) {
         const [a, b, c] = winner[i];
